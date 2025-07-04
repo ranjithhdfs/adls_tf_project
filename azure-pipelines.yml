@@ -7,7 +7,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'ranjithhdfs'  # Replace this
+    azureSubscription: 'deployment'  # Replace this
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
