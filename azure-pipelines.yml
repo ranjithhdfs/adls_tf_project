@@ -7,7 +7,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'AzureServiceConnectionName'  # Replace with your service connection name
+    azureSubscription: 'AzureServiceConnectionName'  # Replace this
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -19,6 +19,7 @@ steps:
       terraform version
 
       echo "✅ Initializing Terraform..."
+      cd $(Build.SourcesDirectory)
       terraform init
 
       echo "✅ Running Terraform plan..."
@@ -26,5 +27,4 @@ steps:
 
       echo "✅ Applying Terraform configuration..."
       terraform apply -auto-approve -var-file="terraform.tfvars"
-  displayName: 'Run Terraform CLI'
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
+  displayName: 'Run Terraform from Azure CLI'
