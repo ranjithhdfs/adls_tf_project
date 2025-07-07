@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'my agent windows pool'
+  name: 'my agent windows pool'
 
 steps:
 - task: AzureCLI@2
